@@ -1,0 +1,111 @@
+POST http://localhost:3000/user/register
+Content-Type: application/json
+
+{
+    "name": "name-abhi",
+    "userName": "Abhijeet30",
+    "email": "abhii@g.com",
+    "password": "Pallavi@1710",
+    "phoneNumber": "7558348607",
+    "address": "At Sakori",
+    "profilePicture": "pic"
+}
+
+###
+
+POST http://localhost:3000/usersPresentInArray
+Content-Type: application/json
+
+{
+    "userIds": [1, 3]
+}
+
+###
+
+POST http://localhost:3000/user/update
+Content-Type: application/json
+
+{
+    "userId": 17,
+    "tagLine": "Chasing Excellence",
+    "company": "Infosys Ltd."
+}
+
+###
+
+POST http://localhost:3000/user/login
+Content-Type: application/json
+
+{
+    "email": "pallavii@g.com",
+    "password": "Pallavi@1710"
+}
+
+###
+
+GET http://localhost:3000/users HTTP/1.1
+
+###
+
+GET http://localhost:3000/user/test/6/2
+
+###
+
+GET http://localhost:3000/user/1
+
+###
+
+GET http://localhost:3000/projects
+
+###
+
+GET http://localhost:3000/project/6
+
+###
+
+POST http://localhost:3000/project/addNewProject
+Content-Type: application/json
+
+{
+    "projectName": "Cont 1",
+    "projectDescription": "Cont Desc",
+    "projectAdmin": 1,
+    "teamMatesRequire": 2,
+    "techStackRequire": ["Java", "Spring"]
+}
+
+###
+
+POST http://localhost:3000/project/addRequest
+Content-Type: application/json
+
+{
+    "projectId": 6,
+    "userId": 2
+}
+
+###
+
+POST http://localhost:3000/project/acceptRequest
+Content-Type: application/json
+
+{
+    "projectId": 6,
+    "userId": 2
+}
+
+###
+
+
+
+
+
+
+
+
+
+GET http://localhost:3000/default HTTP/1.1
+
+###
+
+
