@@ -81,7 +81,7 @@ const userSchema = new mongoose.Schema(
         },
         profilePicture: {
             type: String,
-            default: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWo3luud5KPZknLR5zdUUwzvYBztWgTxrkbA&usqp=CAU"
+            default: "https://st2.depositphotos.com/1006318/5909/v/600/depositphotos_59095205-stock-illustration-businessman-profile-icon.jpg"
         },
         connections: {
             type: [Number],
