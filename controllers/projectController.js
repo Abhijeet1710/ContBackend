@@ -126,3 +126,48 @@ exports.acceptRequest = async (req, res) => {
         .json({ status: "failure", message: "Some Error", data: err });
     }
 }
+
+exports.unlikeProject = async (req, res) => {
+    try {        
+        const cond = {projectId: req.body.projectId};
+        const updationPull = {$pull: {liked: req.body.userId}};
+        const updated = await projectModel.updateOne(cond, updationPull);
+
+        // const updationAdd = {$addToSet: {projectContributors: req.body.userId}};
+        // const updated = await projectModel.updateOne(cond, updationAdd);
+
+        // await userController.addProjectInParticipatedProjects(req.body.userId, req.body.projectId);
+
+        res
+            .status(200)
+            .json({ status: "success", message: "Unliked Succesfull", data: updated });
+    } catch(err) {
+        res
+        .status(401)
+        .json({ status: "failure", message: "Some Error", data: err });
+    }
+}
+
+
+
+exports.likeProject = async (req, res) => {
+    try {        
+        const cond = {projectId: req.body.projectId};
+        const updationAdd = {$addToSet: {liked: req.body.userId}};
+        const updated = await projectModel.updateOne(cond, updationAdd);
+
+        
+        // const updationAdd = {$addToSet: {projectContributors: req.body.userId}};
+        // const updated = await projectModel.updateOne(cond, updationAdd);
+
+        // await userController.addProjectInParticipatedProjects(req.body.userId, req.body.projectId);
+
+        res
+            .status(200)
+            .json({ status: "success", message: "Unliked Succesfull", data: updated });
+    } catch(err) {
+        res
+        .status(401)
+        .json({ status: "failure", message: "Some Error", data: err });
+    }
+}

@@ -33,6 +33,10 @@ routing.post('/project/addRequest', projectController.addRequest);
 
 routing.post('/project/acceptRequest', projectController.acceptRequest);    //*
 
+routing.post('/project/likeProject', projectController.likeProject);    //*
+
+routing.post('/project/unlikeProject', projectController.unlikeProject);    //*
+
 
 // _______________________________________________________________________
 
