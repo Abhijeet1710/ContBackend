@@ -11,7 +11,7 @@ routing.post('/users/usersPresentInArray', userController.getUsersPresentInArray
 
 routing.get('/user/:userId', userController.getUser);
 
-routing.get('/user/:userName', userController.getUserViaUserName);
+routing.get('/user/viaUserName/:userName', userController.getUserViaUserName);
 
 routing.post('/user/register', userController.registerUser);
 
