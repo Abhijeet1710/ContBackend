@@ -22,6 +22,23 @@ exports.getUser = async (req, res) => {
     }
 }
 
+exports.getUserViaUserName = async (req, res) => {
+    try {
+
+        const result = await userModel.find({userId: req.params.userName});
+
+        res
+        .status(200)
+        .json({ status: "success", message: "Found", data: result });
+        
+    }catch(err) {
+        res
+        .status(401)
+        .json({ status: "failure", message: err, data: [] });
+        
+    }
+}
+
 exports.getUsersPresentInArray = async (req, res) => {
     try {
         const result = await userModel.find({userId: {$in: req.body.userIds}});
@@ -32,7 +49,7 @@ exports.getUsersPresentInArray = async (req, res) => {
         
     }catch(err) {
         res
-        .status(4001)
+        .status(401)
         .json({ status: "failure", message: err, data: {} });
         
     }
@@ -48,10 +65,10 @@ exports.registerUser = async (req, res) => {
 
         const newUser = { ...req.body, userId };
 
-        const userWithSameEmail = await userModel.find({ email: newUser.email })
+        const userWithSameEmail = await userModel.find({ email: newUser.email, userName: newUser.userName })
 
         if (userWithSameEmail.length != 0) {
-            res.status(400).json({ status: "failure", message: "User with this email already exist", data: {} })
+            res.status(400).json({ status: "failure", message: "User with this email or User Name already exists", data: {} })
         } else {
             const newlyAddedUser = await userModel.create(newUser);
             res.status(200).json({ status: "success", message: "Register Successfuly", data: { data: newlyAddedUser } });
